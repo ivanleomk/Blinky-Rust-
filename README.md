@@ -2,6 +2,8 @@
 
 This repository was originall forked from the [stm32h7xx-hal](https://github.com/astraw/stm32h7xx-hal) crate. Much of the code is resused but I have adapted it to be able to work with a Nucleo H743ZI board.
 
+[0-clause BSD license](LICENSE-0BSD.txt).
+
 # Installing the Neccessary Libraries
 
 1. Install STM32 Cube Programmer . The installer can be downloaded at
@@ -103,11 +105,11 @@ Flash the device:
 /Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI -c port=SWD -d ./target/thumbv7em-none-eabi/release/blinky.bin 0x08000000 -s
 ```
 
-## License
+## Virtual Emulation
 
-[0-clause BSD license](LICENSE-0BSD.txt).
+Run with QEMU. This allows us to run the binary on a QEMU ARM emulation with a m7 cortex ARM chip with some degree of semihosting.
 
-Run with QEMU
+Note : AM currently in the midst of configuring GPIO output for QEMU
 
 ```
 qemu-system-arm \

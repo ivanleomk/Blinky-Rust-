@@ -17,6 +17,8 @@ use stm32h7xx_hal::{
 use cortex_m_rt::entry;
 
 use embedded_hal::digital::v2::OutputPin;
+// use cortex_m_semihosting::{hprintln};
+
 
 #[entry]
 fn main() -> ! {
@@ -49,10 +51,14 @@ fn main() -> ! {
 
     // Wait for the timer to trigger an update and change the state of the LED
     loop {
+        // hprintln!("Hello, world!").unwrap();
         block!(timer.wait()).unwrap();
         ld2.set_high().unwrap();
+        ld3.set_low().unwrap();
         block!(timer.wait()).unwrap();
         ld2.set_low().unwrap();
+        ld3.set_high().unwrap();
+        
     }
 
 }
